@@ -13,4 +13,5 @@ cur = conn.cursor()
 df = pandas.read_sql_query("SELECT * FROM ips", conn)
 print(df)
 
-df.to_csv("database1", index = None)
+df.to_csv("database1.csv", index = None)
+#df.to_excel("database2.xlsx")
