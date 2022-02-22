@@ -14,4 +14,17 @@ df = pandas.read_sql_query("SELECT * FROM ips", conn)
 print(df)
 
 #df.to_csv("database1.csv", index = None)
-df.to_excel("database2.xlsx")
+#df.to_excel("database2.xlsx")
+
+"""Inserting data into the database"""
+new_row = [
+  ("192.168.1.151", "eric.com", 89)
+]
+
+cur.executemany("INSERT INTO ips VALUES(?,?,?)", new_row)
+conn.commit()
+
+cur.execute("SELECT * FROM ips")
+print(cur.fetchall())
+
+
